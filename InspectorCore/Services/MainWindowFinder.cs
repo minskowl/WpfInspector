@@ -41,7 +41,9 @@ namespace ChristianMoser.WpfInspector.Services
 
         private static bool IsMainWindow(IntPtr handle)
         {
-            return (!(NativeMethods.GetWindow(handle, 4) != IntPtr.Zero) && NativeMethods.IsWindowVisible(handle));
+            return !(NativeMethods.GetWindow(handle, 4) != IntPtr.Zero) 
+                  //  && NativeMethods.IsWindowVisible(handle)
+                    ;
         }
     }
 

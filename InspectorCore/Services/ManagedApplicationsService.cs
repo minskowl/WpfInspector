@@ -97,8 +97,9 @@ namespace ChristianMoser.WpfInspector.Services
                 _managedApplicationsInfo.ManagedApplicationInfos.Refresh();
                 _managedApplicationsInfo.State = ApplicationsInfoState.Available;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex.ToString());
                 _managedApplicationsInfo.State = ApplicationsInfoState.Error;
             }
 
@@ -126,8 +127,12 @@ namespace ChristianMoser.WpfInspector.Services
                 //Process p = GetProcess(hWnd);)
                 string runtimeVersion;
                 int bitness;
+
+                Debug.WriteLine($"Check {processId}");
+
                 if (GetIsManagedApplication(hWnd, processId, out runtimeVersion, out bitness) )
                 {
+                    Debug.WriteLine($"Find process {processId} {runtimeVersion} {bitness}");
                     IntPtr mainWindowHandle = new MainWindowFinder().FindMainWindow(processId);
                     string windowText = GetWindowText(mainWindowHandle);
                     if (mainWindowHandle == hWnd)
@@ -136,6 +141,7 @@ namespace ChristianMoser.WpfInspector.Services
                         if (!process.ProcessName.Contains("devenv") && !process.ProcessName.Contains("PresentationHost") 
                             && !process.ProcessName.ToLower().Contains("inspector"))
                         {
+                            Debug.WriteLine($"add {process.ProcessName} {processId} ");
                             var applicationInfo = new ManagedApplicationInfo(windowText, hWnd, processId, runtimeVersion, bitness);
                             managedApplications.Add(applicationInfo);
                             checkedProcessIds.Add(processId);    

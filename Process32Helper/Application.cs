@@ -13,19 +13,21 @@ namespace ChristianMoser.WpfInspector.Process32Helper
         /// <param name="args">The args.</param>
         public static void Main( string[] args)
         {
+            Console.WriteLine("Hello");
             // Start a serivce host to query 32-bit processes
             try
             {
                 var host = new ServiceHost(typeof(ProcessService));
-                host.AddServiceEndpoint(typeof(IProcessService), new NetTcpBinding(), Process32Service.ProcessServiceAddress);
+                host.AddServiceEndpoint(typeof(IProcessService), new NetTcpBinding(), "net.tcp://localhost/ProcessService");
                 host.Open();
-
+                Console.WriteLine("Started");
                 // Wait forever
                 var evt = new AutoResetEvent(false);
                 evt.WaitOne();
             }
-            catch (AddressAlreadyInUseException)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex);
             }
             
         }

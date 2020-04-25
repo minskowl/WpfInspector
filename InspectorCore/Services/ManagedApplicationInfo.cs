@@ -124,6 +124,11 @@ namespace ChristianMoser.WpfInspector.Services
             return ProcessId;
         }
 
+        public override string ToString()
+        {
+            return $"{ProcessId} {Name}";
+        }
+
         #endregion
     }
 }

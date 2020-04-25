@@ -15,7 +15,7 @@ namespace ChristianMoser.WpfInspector.Services
 
         #region Constants
 
-        public const string ProcessServiceAddress = "net.pipe://localhost/ProcessService";
+        public const string ProcessServiceAddress = "net.tcp://localhost/ProcessService";
         public const string Process32ExeName = "Process32Helper.exe";
 
         #endregion
