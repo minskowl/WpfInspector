@@ -2,11 +2,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     ShowInTaskbar="False" Background="{DynamicResource WindowBackgroundBrush}"
-    Title="Binding Editor" Width="500" Height="500" Icon="/Inspector;component/Images/Inspector.png">
+    Title="Binding Editor" Width="500" Height="500" Icon="/InspectorCore;component/Images/Inspector.png">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Inspector.xaml" />
+                <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Inspector.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>

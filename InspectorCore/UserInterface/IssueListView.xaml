@@ -10,21 +10,21 @@
         <StackPanel Margin="8,4,0,4" Orientation="Horizontal" HorizontalAlignment="Left">
             <ToggleButton Margin="0,0,4,0" IsChecked="{Binding IsShowErrors}" HorizontalContentAlignment="Left" >
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Inspector;component/Images/error.png" Height="14" />
+                    <Image Source="/InspectorCore;component/Images/error.png" Height="14" />
                     <TextBlock Margin="4,0,0,0" Text="{Binding Errors}" />
                     <TextBlock Margin="4,0,0,0" Text="Errors" />
                 </StackPanel>
             </ToggleButton>
             <ToggleButton Margin="0,0,4,0" IsChecked="{Binding IsShowWarnings}" HorizontalContentAlignment="Left" >
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Inspector;component/Images/warning.png" Height="14" />
+                    <Image Source="/InspectorCore;component/Images/warning.png" Height="14" />
                     <TextBlock Margin="4,0,0,0" Text="{Binding Warnings}" />
                     <TextBlock Margin="4,0,0,0" Text="Warnings" />
                 </StackPanel>
             </ToggleButton>
             <ToggleButton Margin="0,0,4,0" IsChecked="{Binding IsShowMessages}" HorizontalContentAlignment="Left" >
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Inspector;component/Images/information.png" Height="14" />
+                    <Image Source="/InspectorCore;component/Images/information.png" Height="14" />
                     <TextBlock Margin="4,0,0,0" Text="{Binding Messages}" />
                     <TextBlock Margin="4,0,0,0" Text="Informations" />
                 </StackPanel>
@@ -46,13 +46,13 @@
                         <GridViewColumn >
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Image x:Name="image" Source="/Inspector;component/Images/information.png" Height="14" Width="14" />
+                                    <Image x:Name="image" Source="/InspectorCore;component/Images/information.png" Height="14" Width="14" />
                                     <DataTemplate.Triggers>
                                         <DataTrigger Binding="{Binding Severity}" Value="Error" >
-                                            <Setter TargetName="image" Property="Source" Value="/Inspector;component/Images/error.png" />
+                                            <Setter TargetName="image" Property="Source" Value="/InspectorCore;component/Images/error.png" />
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding Severity}" Value="Warning" >
-                                            <Setter TargetName="image" Property="Source" Value="/Inspector;component/Images/warning.png" />
+                                            <Setter TargetName="image" Property="Source" Value="/InspectorCore;component/Images/warning.png" />
                                         </DataTrigger>
                                     </DataTemplate.Triggers>
                                 </DataTemplate>

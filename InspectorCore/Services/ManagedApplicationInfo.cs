@@ -48,7 +48,7 @@ namespace ChristianMoser.WpfInspector.Services
                     bitmapImage.Freeze();
                     return bitmapImage;
                 }
-                return new BitmapImage(new Uri("pack://application:,,,/Inspector;component/Images/noprocessicon.png"));
+                return new BitmapImage(new Uri("pack://application:,,,/InspectorCore;component/Images/noprocessicon.png"));
             }
         }
 

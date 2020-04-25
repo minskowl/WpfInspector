@@ -17,7 +17,7 @@ namespace ChristianMoser.WpfInspector.Process32Helper
             try
             {
                 var host = new ServiceHost(typeof(ProcessService));
-                host.AddServiceEndpoint(typeof(IProcessService), new NetNamedPipeBinding(), Process32Service.ProcessServiceAddress);
+                host.AddServiceEndpoint(typeof(IProcessService), new NetTcpBinding(), Process32Service.ProcessServiceAddress);
                 host.Open();
 
                 // Wait forever

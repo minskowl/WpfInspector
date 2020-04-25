@@ -2,7 +2,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Brushes.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Brushes.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="GridViewColumnHeaderGripper" TargetType="Thumb">

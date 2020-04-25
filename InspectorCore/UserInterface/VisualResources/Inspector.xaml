@@ -2,28 +2,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Brushes.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/Button.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/ToggleButton.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/Separator.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/CheckBox.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/TextBlock.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/ListBox.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/ComboBox.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/Expander.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/TabControl.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/TreeView.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/ListView.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/ScrollBar.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/ComboBox.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/Menu.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/ToolTip.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/PopupContentControl.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/XamlTextBlock.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/ColorPicker.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/BrushEditor.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Controls/PropertyGrid.xaml" />
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/DefaultDataTemplates.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Brushes.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/Button.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/ToggleButton.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/Separator.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/CheckBox.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/TextBlock.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/ListBox.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/ComboBox.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/Expander.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/TabControl.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/TreeView.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/ListView.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/ScrollBar.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/ComboBox.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/Menu.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/ToolTip.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/PopupContentControl.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/XamlTextBlock.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/ColorPicker.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/BrushEditor.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Controls/PropertyGrid.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/DefaultDataTemplates.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type Rectangle}" />

@@ -6,6 +6,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\bin\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="Images\border.png" />
     <None Remove="Images\button.png" />
@@ -61,6 +65,10 @@
     <None Remove="Images\warning.png" />
     <None Remove="Images\window.png" />
     <None Remove="Images\xaml.png" />
+    <None Remove="UserInterface\VisualResources\Images\active.png" />
+    <None Remove="UserInterface\VisualResources\Images\inactive.png" />
+    <None Remove="UserInterface\VisualResources\Images\resourceitem.png" />
+    <None Remove="UserInterface\VisualResources\Images\triggeritem.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -123,6 +131,10 @@
     <Resource Include="Images\warning.png" />
     <Resource Include="Images\window.png" />
     <Resource Include="Images\xaml.png" />
+    <Resource Include="UserInterface\VisualResources\Images\active.png" />
+    <Resource Include="UserInterface\VisualResources\Images\inactive.png" />
+    <Resource Include="UserInterface\VisualResources\Images\resourceitem.png" />
+    <Resource Include="UserInterface\VisualResources\Images\triggeritem.png" />
   </ItemGroup>
 
 </Project>

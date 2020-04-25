@@ -2,7 +2,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:r="clr-namespace:ChristianMoser.WpfInspector.Services.Resources" xmlns:c="clr-namespace:ChristianMoser.WpfInspector.UserInterface.Converters" xmlns:UserInterface="clr-namespace:ChristianMoser.WpfInspector.UserInterface">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Brushes.xaml" />
+        <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Brushes.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="ListBox">
@@ -86,7 +86,7 @@
                         <ToggleButton x:Name="tb" ClickMode="Press" IsChecked="{Binding Path=IsExpanded}" Style="{StaticResource TreeListToggleStyle}" />
                         <Border x:Name="selection" Background="Transparent" BorderThickness="1" CornerRadius="3" >
                             <StackPanel Orientation="Horizontal" Margin="2,0">
-                                <Image x:Name="icon" IsHitTestVisible="False" Source="/Inspector;component/Images/window.png" Margin="2,0" Stretch="None" />
+                                <Image x:Name="icon" IsHitTestVisible="False" Source="/InspectorCore;component/Images/window.png" Margin="2,0" Stretch="None" />
                                 <TextBlock x:Name="name" Foreground="{DynamicResource DefaultForegroundBrush}" IsHitTestVisible="False" Text="{Binding Path=Name}" VerticalAlignment="Center" />
                                 <TextBlock Foreground="#bbbbbb" Margin="8,0,0,0" IsHitTestVisible="False" Text="{Binding Path=ElementCount, StringFormat='{}({0})'}" VerticalAlignment="Center" />
                             </StackPanel>
@@ -123,89 +123,89 @@
                             <Setter Property="BorderThickness" TargetName="selection" Value="1"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="Window">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/window.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/window.png"  />
                             <Setter TargetName="name" Property="FontWeight" Value="Bold" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="UserControl">
                             <Setter TargetName="name" Property="FontWeight" Value="Bold" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="TextBlock">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/textblock.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/textblock.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="StackPanel">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/stackpanel.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/stackpanel.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="Grid">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/grid.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/grid.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="Button">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/button.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/button.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="TextBox">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/textbox.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/textbox.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="TabControl">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/tabcontrol.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/tabcontrol.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="Image">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/image.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/image.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="ComboBox">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/combobox.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/combobox.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="ListBox">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/listbox.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/listbox.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="CheckBox">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/checkbox.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/checkbox.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="DockPanel">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/dockpanel.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/dockpanel.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="ContentControl">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/contentcontrol.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/contentcontrol.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="Canvas">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/canvas.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/canvas.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="RadioButton">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/radiobutton.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/radiobutton.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="Border">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/border.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/border.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="Expander">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/expander.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/expander.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="GridSplitter">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/gridsplitter.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/gridsplitter.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="Menu">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/menu.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/menu.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="MediaElement">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/mediaelement.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/mediaelement.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="ListView">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/listview.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/listview.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="Slider">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/slider.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/slider.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="Separator">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/separator.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/separator.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="ScrollViewer">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/scrollviewer.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/scrollviewer.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="RichTextBox">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/richtextbox.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/richtextbox.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="ProgressBar">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/progressbar.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/progressbar.png"  />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Type}" Value="PasswordBox">
-                            <Setter TargetName="icon" Property="Source" Value="/Inspector;component/Images/passwordbox.png"  />
+                            <Setter TargetName="icon" Property="Source" Value="/InspectorCore;component/Images/passwordbox.png"  />
                         </DataTrigger>
                     </DataTemplate.Triggers>
                 </DataTemplate>

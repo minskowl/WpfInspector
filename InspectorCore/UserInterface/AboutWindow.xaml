@@ -6,13 +6,13 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Inspector;component/UserInterface/VisualResources/Inspector.xaml" />
+                <ResourceDictionary Source="/InspectorCore;component/UserInterface/VisualResources/Inspector.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <StackPanel>
-            <Image IsHitTestVisible="False" Margin="6,6,6,6" Stretch="None" Source="/Inspector;component/Images/inspectorlogo.png" VerticalAlignment="Top" HorizontalAlignment="Left"  />
+            <Image IsHitTestVisible="False" Margin="6,6,6,6" Stretch="None" Source="/InspectorCore;component/Images/inspectorlogo.png" VerticalAlignment="Top" HorizontalAlignment="Left"  />
             <TextBlock Margin="16" TextWrapping="Wrap">
            <Run FontWeight="Bold">WPF Inspector 1.0 </Run><LineBreak/>
             © 2010, Christian Moser<LineBreak/>
