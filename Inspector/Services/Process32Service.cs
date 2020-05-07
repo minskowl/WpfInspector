@@ -22,8 +22,14 @@ namespace ChristianMoser.WpfInspector.Services
 
         public string Inspect(ManagedApplicationInfo applicationInfo)
         {
+#if NETCORE
+            var binding = new NetTcpBinding();
+            var channelFactory = new ChannelFactory<IProcessService>(binding, new EndpointAddress(ProcessServiceAddress));
+#else
             var binding = new NetNamedPipeBinding();
             var channelFactory = new ChannelFactory<IProcessService>(binding, ProcessServiceAddress);
+#endif
+
             IProcessService processService = channelFactory.CreateChannel();
             return processService.Inspect(applicationInfo);
         }
@@ -33,8 +39,13 @@ namespace ChristianMoser.WpfInspector.Services
             // Client
             try
             {
+#if NETCORE
+                var binding = new NetTcpBinding();
+                var channelFactory = new ChannelFactory<IProcessService>(binding, new EndpointAddress(ProcessServiceAddress));
+#else
                 var binding = new NetNamedPipeBinding();
                 var channelFactory = new ChannelFactory<IProcessService>(binding, ProcessServiceAddress);
+#endif
                 IProcessService processService = channelFactory.CreateChannel();
                 List<ManagedApplicationInfo> processInfos = processService.GetProcessInfos();
                 return processInfos;
@@ -45,7 +56,7 @@ namespace ChristianMoser.WpfInspector.Services
             }   
         }
 
-        #region IDisposable Members
+#region IDisposable Members
 
         public void Dispose()
         {
@@ -55,7 +66,7 @@ namespace ChristianMoser.WpfInspector.Services
             }
         }
 
-        #endregion
+#endregion
 
         public Process Start32BitProcessHelper()
         {
