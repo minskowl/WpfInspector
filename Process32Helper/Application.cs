@@ -1,17 +1,22 @@
-﻿using System;
-using System.ServiceModel;
+﻿#if NETFULL
+using System;
 using System.Threading;
+using System.ServiceModel;
 using ChristianMoser.WpfInspector.Services;
+
+
 
 namespace ChristianMoser.WpfInspector.Process32Helper
 {
+
+
     public static class Application
     {
         /// <summary>
         /// Static application entry point
         /// </summary>
         /// <param name="args">The args.</param>
-        public static void Main( string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Hello");
             // Start a serivce host to query 32-bit processes
@@ -29,7 +34,11 @@ namespace ChristianMoser.WpfInspector.Process32Helper
             {
                 Console.WriteLine(ex);
             }
-            
+   
+
         }
-    }
+
+     }
+
 }
+#endif
