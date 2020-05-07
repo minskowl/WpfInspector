@@ -8,7 +8,10 @@ namespace ChristianMoser.WpfInspector.UserInterface
     /// </summary>
     public partial class App : Application
     {
-        
+        public App()
+        {
+
+        }
         protected override void OnExit(ExitEventArgs e)
         {
             ServiceLocator.Resolve<Process32Service>().Dispose();

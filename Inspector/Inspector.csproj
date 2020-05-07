@@ -5,6 +5,7 @@
     <TargetFrameworks>netcoreapp3.1;net35</TargetFrameworks>
     <UseWPF>true</UseWPF>
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	<RootNamespace>ChristianMoser.WpfInspector</RootNamespace>
   </PropertyGroup>
 
 <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1'">

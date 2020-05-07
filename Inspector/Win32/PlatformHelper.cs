@@ -5,6 +5,13 @@ namespace ChristianMoser.WpfInspector.Win32
 {
     public class PlatformHelper
     {
+        public  static bool IsCoreProcess { get; }
+
+        static PlatformHelper()
+        {
+            var dir = System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory();
+            IsCoreProcess = dir.Contains("Microsoft.NETCore.");
+        }
         public static readonly bool Is64BitProcess = (IntPtr.Size == 8);
 
         [MethodImpl(MethodImplOptions.NoInlining)]
