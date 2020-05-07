@@ -62,7 +62,7 @@ namespace ChristianMoser.WpfInspector.Services
             var threadId = (uint)NativeMethods.GetWindowThreadProcessId(applicationInfo.HWnd, out processId);
             using (var process = Process.GetProcessById(processId))
             {
-                string version = applicationInfo.RuntimeVersion.Contains("4") ? "40" : "35";
+                string version =applicationInfo.IsNetCore? "Core30" :(applicationInfo.RuntimeVersion.Contains("4") ? "40" : "35");
                 string hookName = string.Format("Hook{0}_{1}.dll", applicationInfo.Bitness, version);
 
                 IntPtr hInstance = NativeMethods.LoadLibrary(hookName);

@@ -19,13 +19,14 @@ namespace ChristianMoser.WpfInspector.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="ManagedApplicationInfo"/> class.
         /// </summary>
-        public ManagedApplicationInfo(string name, IntPtr hWnd, int processId, string runtimeVersion, int bitness)
+        public ManagedApplicationInfo(string name, IntPtr hWnd, int processId, string runtimeVersion, int bitness, bool isNetCore)
         {
             Name = name;
             HWnd = hWnd;
             ProcessId = processId;
             RuntimeVersion = runtimeVersion;
             Bitness = bitness;
+            IsNetCore = isNetCore;
             IconData = GetApplicationIcon();
         }
 
@@ -82,6 +83,8 @@ namespace ChristianMoser.WpfInspector.Services
         [DataMember]
         public string RuntimeVersion { get; set; }
 
+        [DataMember]
+        public bool IsNetCore { get; set; }
         /// <summary>
         /// Gets or sets the bitness of the process (32 or 64)
         /// </summary>

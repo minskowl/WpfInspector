@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows.Shapes;
 using System.Windows.Threading;
 using ChristianMoser.WpfInspector.Win32;
 
@@ -126,7 +127,8 @@ namespace ChristianMoser.WpfInspector.Services
                 //Process p = GetProcess(hWnd);)
                 string runtimeVersion;
                 int bitness;
-                if (GetIsManagedApplication(hWnd, processId, out runtimeVersion, out bitness) )
+                bool IsNetCore;
+                if (GetIsManagedApplication(hWnd, processId, out runtimeVersion, out bitness,out IsNetCore) )
                 {
                     IntPtr mainWindowHandle = new MainWindowFinder().FindMainWindow(processId);
                     string windowText = GetWindowText(mainWindowHandle);
@@ -136,7 +138,7 @@ namespace ChristianMoser.WpfInspector.Services
                         if (!process.ProcessName.Contains("devenv") && !process.ProcessName.Contains("PresentationHost") 
                             && !process.ProcessName.ToLower().Contains("inspector"))
                         {
-                            var applicationInfo = new ManagedApplicationInfo(windowText, hWnd, processId, runtimeVersion, bitness);
+                            var applicationInfo = new ManagedApplicationInfo(windowText, hWnd, processId, runtimeVersion, bitness, IsNetCore);
                             managedApplications.Add(applicationInfo);
                             checkedProcessIds.Add(processId);    
                         }
@@ -192,12 +194,12 @@ namespace ChristianMoser.WpfInspector.Services
 
         }
 
-        private bool GetIsManagedApplication(IntPtr windowHandle, int processId, out string versionInfo, out int bitness)
+        private bool GetIsManagedApplication(IntPtr windowHandle, int processId, out string versionInfo, out int bitness, out bool IsNetCore)
         {
             bool isValid = false;
             versionInfo = null;
             bitness = _is64BitProcess ? 64 : 32;
-
+            IsNetCore = false;
             try
             {
                 if (windowHandle == IntPtr.Zero)
@@ -246,12 +248,29 @@ namespace ChristianMoser.WpfInspector.Services
                                 {
                                     bitness = 32;
                                 }
+
+                                if (exePath.Contains("microsoft.netcore.app") && exePath.EndsWith("coreclr.dll"))
+                                {
+                                    IsNetCore = true;
+                                }
                                 if (exePath.Contains("presentationcore") ||
                                     exePath.Contains("presentationframework") ||
                                     exePath.Contains("wpfgfx"))
                                 {
                                     var fileVersionInfo = FileVersionInfo.GetVersionInfo(exePath);
-                                    versionInfo = string.Format("{0}.{1}", fileVersionInfo.FileMajorPart, fileVersionInfo.FileMinorPart);
+                                    if (IsNetCore)
+                                    {
+                                       var dirs= System.IO.Path.GetDirectoryName(fileVersionInfo.FileName).Split('\\');
+                                       var version=new Version(dirs.Last());
+                                       versionInfo = string.Format("{0}.{1}", version.Major, version.Minor);
+                                    }
+                                    else
+                                    {
+                                        versionInfo = string.Format("{0}.{1}", fileVersionInfo.FileMajorPart, fileVersionInfo.FileMinorPart);
+                                    }
+
+
+                                 
                                     isValid = true;
                                     break;
                                 }

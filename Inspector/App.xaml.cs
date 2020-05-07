@@ -12,6 +12,15 @@ namespace ChristianMoser.WpfInspector.UserInterface
         {
 
         }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            MainWindow =e.Args.Length==0? (Window)new SelectorWindow(): new TestWindow();
+            MainWindow.Show();
+            base.OnStartup(e);
+
+        }
+
         protected override void OnExit(ExitEventArgs e)
         {
             ServiceLocator.Resolve<Process32Service>().Dispose();

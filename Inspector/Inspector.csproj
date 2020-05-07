@@ -6,6 +6,7 @@
     <UseWPF>true</UseWPF>
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	<RootNamespace>ChristianMoser.WpfInspector</RootNamespace>
+	<StartupObject>ChristianMoser.WpfInspector.UserInterface.App</StartupObject>
   </PropertyGroup>
 
 <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1'">
