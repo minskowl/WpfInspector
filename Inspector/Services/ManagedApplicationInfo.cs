@@ -58,7 +58,8 @@ namespace ChristianMoser.WpfInspector.Services
         /// </summary>
         [DataMember]
         public byte[] IconData { get; set; }
-
+        [DataMember]
+        public bool IsOwningProcessElevated { get; set; }
         /// <summary>
         /// Gets or sets the H WND.
         /// </summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
@@ -154,14 +155,14 @@ namespace ChristianMoser.WpfInspector.Win32
 
         [DllImport("psapi.dll", CharSet = CharSet.Unicode)]
         public static extern int GetModuleFileNameEx(
-            [In] IntPtr ProcessHandle,
+            [In] ProcessHandle ProcessHandle,
             [In] [Optional] IntPtr ModuleHandle,
             [Out] StringBuilder FileName,
             [In] int Size
             );
 
         [DllImport("psapi.dll", SetLastError = true), SuppressUnmanagedCodeSecurityAttribute]
-        public static extern bool EnumProcessModules(IntPtr hProcess,
+        public static extern bool EnumProcessModules(ProcessHandle hProcess,
                                                     [In][Out] IntPtr[] lphModule,
                                                     uint cb,
                                                     [MarshalAs(UnmanagedType.U4)] out uint lpcbNeeded);
@@ -173,7 +174,7 @@ namespace ChristianMoser.WpfInspector.Win32
         [DllImport("psapi.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool EnumProcessModulesEx(
-            [In] IntPtr ProcessHandle,
+            [In] ProcessHandle ProcessHandle,
             [Out] IntPtr[] ModuleHandles,
             [In] uint Size,
             [Out] out uint RequiredSize,
@@ -181,9 +182,25 @@ namespace ChristianMoser.WpfInspector.Win32
             );
 
         [DllImport("kernel32.dll"), SuppressUnmanagedCodeSecurityAttribute]
-        public static extern IntPtr OpenProcess(ProcessAccessFlags dwDesiredAccess,
+        public static extern ProcessHandle OpenProcess(ProcessAccessFlags dwDesiredAccess,
                                          [MarshalAs(UnmanagedType.Bool)] bool bInheritHandle,
                                          int dwProcessId);
+
+        public static ProcessHandle OpenProcess(Process proc, ProcessAccessFlags flags)
+        {
+            return OpenProcess(flags, bInheritHandle: false, proc.Id);
+        }
+        public static bool IsProcessElevated(Process process)
+        {
+            using (ProcessHandle processHandle = OpenProcess(process, ProcessAccessFlags.QueryInformation))
+            {
+                if (processHandle.IsInvalid)
+                {
+                    return Marshal.GetLastWin32Error() == 5;
+                }
+                return false;
+            }
+        }
 
         [DllImport("kernel32.dll", SetLastError = true), SuppressUnmanagedCodeSecurityAttribute]
         [return: MarshalAs(UnmanagedType.Bool)]

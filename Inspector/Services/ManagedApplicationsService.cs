@@ -139,6 +139,7 @@ namespace ChristianMoser.WpfInspector.Services
                             && !process.ProcessName.ToLower().Contains("inspector"))
                         {
                             var applicationInfo = new ManagedApplicationInfo(windowText, hWnd, processId, runtimeVersion, bitness, IsNetCore);
+                            applicationInfo.IsOwningProcessElevated = NativeMethods.IsProcessElevated(process);
                             managedApplications.Add(applicationInfo);
                             checkedProcessIds.Add(processId);    
                         }
@@ -217,9 +218,9 @@ namespace ChristianMoser.WpfInspector.Services
                     var lphModule = new IntPtr[2048];
                     uint byteCount = (uint)lphModule.Length * sizeof(uint);
 
-                    IntPtr hProcess = NativeMethods.OpenProcess(NativeMethods.ProcessAccessFlags.All, true, processId);
+                    var hProcess = NativeMethods.OpenProcess(NativeMethods.ProcessAccessFlags.All, true, processId);
                     
-                    if (hProcess != IntPtr.Zero)
+                    if (!hProcess.IsInvalid)
                     {
                         bool enumModuleSuccess;
 
@@ -277,7 +278,7 @@ namespace ChristianMoser.WpfInspector.Services
                             }
                         }
 
-                        NativeMethods.CloseHandle(hProcess);
+                        hProcess.Close();
                     }
                 }
                 _fileVersionCache[processId] = versionInfo;
