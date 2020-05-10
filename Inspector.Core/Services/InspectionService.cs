@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using ChristianMoser.WpfInspector.Win32;
 using System.Threading;
-using ChristianMoser.WpfInspector.Hook;
+
 
 namespace ChristianMoser.WpfInspector.Services
 {
@@ -58,7 +58,7 @@ namespace ChristianMoser.WpfInspector.Services
         }
         private void InspectInternal(ManagedApplicationInfo applicationInfo)
         {
-            InjectorLauncher.Launch(applicationInfo, typeof(Inspector).Assembly.Location, typeof(Inspector).FullName, "Inject", "d");
+            InjectorLauncher.Launch(applicationInfo, "Inspector", "ChristianMoser.WpfInspector.Hook.Inspector", "Inject", "d");
         }
         //private void InspectInternal(ManagedApplicationInfo applicationInfo)
         //{

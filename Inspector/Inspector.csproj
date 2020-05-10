@@ -7,6 +7,7 @@
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	<RootNamespace>ChristianMoser.WpfInspector</RootNamespace>
 	<StartupObject>ChristianMoser.WpfInspector.UserInterface.App</StartupObject>
+    <OutputPath>..\bin\$(Configuration)\</OutputPath>	
   </PropertyGroup>
 
 <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1'">
@@ -101,6 +102,12 @@
     <Page Include="App.xaml" />
   </ItemGroup>
 
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Inspector.Core\Inspector.Core.csproj" />
+  </ItemGroup>
+
   <ItemGroup>
     <Resource Include="Images\border.png" />
     <Resource Include="Images\button.png" />
@@ -160,6 +167,22 @@
     <Resource Include="UserInterface\VisualResources\Images\inactive.png" />
     <Resource Include="UserInterface\VisualResources\Images\resourceitem.png" />
     <Resource Include="UserInterface\VisualResources\Images\triggeritem.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Win32\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="UserInterface\BindingEditorWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserInterface\ResourceEditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserInterface\VisualResources\PropertyGrid.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

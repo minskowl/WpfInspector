@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+	    <TargetFrameworks>netcoreapp3.1;net35</TargetFrameworks>
+				    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+<PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1'">
+	<DefineConstants>NETCORE;</DefineConstants>
+</PropertyGroup>
+
+<PropertyGroup Condition=" '$(TargetFramework)' == 'net35'">
+	<DefineConstants>NETFULL;</DefineConstants>
+</PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1'">
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.7.0" />
+	    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+  
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">		
+  	<Reference Include="PresentationFramework.Aero" />
+	<Reference Include="System.ServiceModel" />
+	<Reference Include="System.Drawing" />
+	<Reference Include="System.Runtime.Serialization" />
+
+</ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="Images\Inspector.png" />
+    <None Remove="Images\inspectorlogo.png" />
+    <None Remove="Images\inspectorlogo_small.png" />
+    <None Remove="UserInterface\VisualResources\Images\active.png" />
+    <None Remove="UserInterface\VisualResources\Images\inactive.png" />
+    <None Remove="UserInterface\VisualResources\Images\resourceitem.png" />
+    <None Remove="UserInterface\VisualResources\Images\triggeritem.png" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Resource Include="Images\Inspector.png" />
+    <Resource Include="Images\inspectorlogo.png" />
+    <Resource Include="Images\inspectorlogo_small.png" />
+    <Resource Include="UserInterface\VisualResources\Images\active.png" />
+    <Resource Include="UserInterface\VisualResources\Images\inactive.png" />
+    <Resource Include="UserInterface\VisualResources\Images\resourceitem.png" />
+    <Resource Include="UserInterface\VisualResources\Images\triggeritem.png" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="UserInterface\Controls\" />
+  </ItemGroup>
+</Project>

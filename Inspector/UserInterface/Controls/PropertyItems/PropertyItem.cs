@@ -11,7 +11,7 @@ using System.Windows.Markup;
 using System.Text.RegularExpressions;
 using System.Windows.Threading;
 using System.Diagnostics;
-using ChristianMoser.WpfInspector.UserInterface.Helpers;
+
 
 namespace ChristianMoser.WpfInspector.UserInterface.Controls.PropertyItems
 {

@@ -6,7 +6,6 @@ using System.Windows.Data;
 using System.Windows.Markup;
 using ChristianMoser.WpfInspector.UserInterface.Controls.PropertyItems;
 using ChristianMoser.WpfInspector.Services;
-using ChristianMoser.WpfInspector.Services.ElementTree;
 using System.Windows;
 using ChristianMoser.WpfInspector.Utilities;
 

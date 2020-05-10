@@ -15,7 +15,7 @@ namespace ChristianMoser.WpfInspector.UserInterface
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            MainWindow =e.Args.Length==0? (Window)new SelectorWindow(): new TestWindow();
+            MainWindow = new TestWindow();
             MainWindow.Show();
             base.OnStartup(e);
 
