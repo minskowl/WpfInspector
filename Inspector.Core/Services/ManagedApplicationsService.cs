@@ -98,8 +98,9 @@ namespace ChristianMoser.WpfInspector.Services
                 _managedApplicationsInfo.ManagedApplicationInfos.Refresh();
                 _managedApplicationsInfo.State = ApplicationsInfoState.Available;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 _managedApplicationsInfo.State = ApplicationsInfoState.Error;
             }
 

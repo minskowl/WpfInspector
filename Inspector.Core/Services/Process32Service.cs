@@ -16,6 +16,7 @@ namespace ChristianMoser.WpfInspector.Services
         #region Constants
 
         public const string ProcessServiceAddress = "net.tcp://localhost/ProcessService";
+        public const string ProcessServiceNet35Address = "net.pipe://localhost/ProcessService";
         public const string Process32ExeName = "Process32Helper.exe";
 
         #endregion
@@ -27,7 +28,7 @@ namespace ChristianMoser.WpfInspector.Services
             var channelFactory = new ChannelFactory<IProcessService>(binding, new EndpointAddress(ProcessServiceAddress));
 #else
             var binding = new NetNamedPipeBinding();
-            var channelFactory = new ChannelFactory<IProcessService>(binding, ProcessServiceAddress);
+            var channelFactory = new ChannelFactory<IProcessService>(binding, ProcessServiceNet35Address);
 #endif
 
             IProcessService processService = channelFactory.CreateChannel();
@@ -44,7 +45,7 @@ namespace ChristianMoser.WpfInspector.Services
                 var channelFactory = new ChannelFactory<IProcessService>(binding, new EndpointAddress(ProcessServiceAddress));
 #else
                 var binding = new NetNamedPipeBinding();
-                var channelFactory = new ChannelFactory<IProcessService>(binding, ProcessServiceAddress);
+                var channelFactory = new ChannelFactory<IProcessService>(binding, ProcessServiceNet35Address);
 #endif
                 IProcessService processService = channelFactory.CreateChannel();
                 List<ManagedApplicationInfo> processInfos = processService.GetProcessInfos();
