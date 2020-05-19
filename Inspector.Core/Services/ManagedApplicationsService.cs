@@ -15,6 +15,7 @@ namespace ChristianMoser.WpfInspector.Services
         #region Private Members
 
         private readonly List<ManagedApplicationInfo> _managedApplications = new List<ManagedApplicationInfo>();
+        private readonly Dictionary<int, bool> _netCoreCache = new Dictionary<int, bool>();
         private readonly Dictionary<int, bool> _validProcessIdCache = new Dictionary<int, bool>();
         private readonly Dictionary<int, string> _fileVersionCache = new Dictionary<int, string>();
         private readonly Dictionary<int, int> _bitnessCache = new Dictionary<int, int>();
@@ -115,6 +116,8 @@ namespace ChristianMoser.WpfInspector.Services
             foreach (var hWnd in EnumerateWindows())
             {
                 int processId;
+              
+
                 NativeMethods.GetWindowThreadProcessId(hWnd, out processId);
 
                 if (checkedProcessIds.Contains(processId))
@@ -210,6 +213,7 @@ namespace ChristianMoser.WpfInspector.Services
                 {
                     versionInfo = _fileVersionCache[processId];
                     bitness = _bitnessCache[processId];
+                    IsNetCore= _netCoreCache[processId];
                     return isValid;
                 }
                 if (processId == _currentProcessId)
@@ -285,6 +289,7 @@ namespace ChristianMoser.WpfInspector.Services
                 _fileVersionCache[processId] = versionInfo;
                 _validProcessIdCache[processId] = isValid;
                 _bitnessCache[processId] = bitness;
+                _netCoreCache[processId] = IsNetCore;
             }
             catch (Exception)
             {

@@ -32,6 +32,11 @@ namespace ChristianMoser.WpfInspector.Services
 
         #endregion
 
+        public string VersionText
+        {
+            get { return IsNetCore ? ".NET Core "+ RuntimeVersion : ".NET "+ RuntimeVersion; }
+        }
+
         /// <summary>
         /// Gets the process icon.
         /// </summary>

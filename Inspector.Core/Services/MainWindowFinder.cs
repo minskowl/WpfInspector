@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -20,11 +21,17 @@ namespace ChristianMoser.WpfInspector.Services
         private bool EnumWindowsCallback(IntPtr handle, IntPtr extraParameter)
         {
             int num;
-            NativeMethods.GetWindowThreadProcessId( handle, out num);
-            if ((num == _processId) && IsMainWindow(handle))
+            NativeMethods.GetWindowThreadProcessId(handle, out num);
+            if ((num == _processId))
             {
-                _bestHandle = handle;
-                return false;
+                Debug.WriteLine("HWND="+ handle);
+                if (IsMainWindow(handle))
+                {
+               
+                    _bestHandle = handle;
+                    return false;
+                }
+
             }
             return true;
         }
@@ -41,7 +48,10 @@ namespace ChristianMoser.WpfInspector.Services
 
         private static bool IsMainWindow(IntPtr handle)
         {
-            return (!(NativeMethods.GetWindow(handle, 4) != IntPtr.Zero) && NativeMethods.IsWindowVisible(handle));
+            var owner = NativeMethods.GetWindow(handle, 4);
+            int num;
+            NativeMethods.GetWindowThreadProcessId(owner, out num);
+            return (!(owner != IntPtr.Zero) && NativeMethods.IsWindowVisible(handle));
         }
     }
 

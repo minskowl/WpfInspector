@@ -36,7 +36,7 @@
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="Runtime" Width="80" DisplayMemberBinding="{Binding RuntimeVersion, StringFormat='{}.NET {0}'}" />
+                                    <GridViewColumn Header="Runtime" Width="80" DisplayMemberBinding="{Binding VersionText}" />
                                     <GridViewColumn Header="Type" Width="80" DisplayMemberBinding="{Binding Bitness, StringFormat='{}{0}-Bit'}" />
                                 </GridView>
                             </ListView.View>
