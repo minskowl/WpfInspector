@@ -39,6 +39,7 @@ namespace ChristianMoser.WpfInspector.Hook
         {
             try
             {
+                Debugger.Launch();
                 var settingsData = TransientSettingsData.LoadCurrent(p);
 
                 var succeeded = false;

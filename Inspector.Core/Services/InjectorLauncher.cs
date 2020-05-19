@@ -39,7 +39,7 @@ Snoop requires this component, which is part of the Snoop project, to do it's jo
 
 
 
-            var startInfo = new ProcessStartInfo(injectorLauncherExe, $"--t { processInfo.ProcessId} --a {assembly} --c {className} --m {methodName} --h {processInfo.HWnd.ToInt32()} --v")
+            var startInfo = new ProcessStartInfo(injectorLauncherExe, $"--t { processInfo.ProcessId} --a {assembly} --c {className} --m {methodName} --h {processInfo.HWnd.ToInt32()} --v ")
             {
                 UseShellExecute = false,
                 CreateNoWindow = true,
